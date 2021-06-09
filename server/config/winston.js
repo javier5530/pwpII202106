@@ -1,4 +1,4 @@
-//importando a winston
+
 import winston, { format, info } from 'winston';
 import appRoot from 'app-root-path';
 import { handlebars } from 'hbs';
@@ -26,7 +26,7 @@ const myFormat  = format.combine(
 
 //Formato para los archivos de log 
 
-const myFormat  = format.combine(
+const myFileFormat  = format.combine(
     format.uncolorize(),
     format.timestamp(),
     format.json()
