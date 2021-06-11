@@ -1,14 +1,17 @@
-var express = require('express');
-var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', author: ' JAVIER GEOVANNI FIGUEROA ', appName: 'WebApp', company: 'Awsome Software' });
-});
+// Importando el router  de Home 
+import homeRouter from  './home';
 
-/* Agregando nuevba ruta*/
-router.get('/greeting', function(req, res, next){
-  res.status(200).json({message: 'Hola campeon de la fullstack web'})
-})
+// Importando router de users 
+import  userRouter from './users'
 
-module.exports = router;
+// Agregando las rutas a la aplicacion 
+const addRoutes = (app) => {
+  app.use('/', homeRouter);
+  app.use('/users', userRouter);
+  return app;
+}
+export default {
+  addRoutes,
+};
+
